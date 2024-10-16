@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
 import { Navigate, Outlet } from 'react-router-dom'
-import { CreatedContext } from '../../pages/context/UserContext'
+import { UserContext } from '../../pages/provider/UserProvider'
 
 const AuthRequired = () => {
 
-  const {isAuthenticate} = useContext(CreatedContext)
+  const {isAuthenticate} = useContext(UserContext)
 
   return isAuthenticate?(
     <Outlet/>

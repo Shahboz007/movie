@@ -1,6 +1,6 @@
 import { createContext, useReducer} from "react";
 
-export const CreatedContext = createContext();
+export const UserContext = createContext();
 
 const initialValues = {
     user: null,
@@ -27,15 +27,15 @@ const reducer = (state, action) =>{
     }
 }
 
-const UserContext = ({children}) =>{
+const UserProvider = ({children}) =>{
 
     const [user ,dispatch] = useReducer(reducer, initialValues)
 
     return(
-        <CreatedContext.Provider value={{...user,dispatch}}>
+        <UserContext.Provider value={{...user,dispatch}}>
             {children}
-        </CreatedContext.Provider>
+        </UserContext.Provider>
     )
 }
 
-export default UserContext;
+export default UserProvider;
